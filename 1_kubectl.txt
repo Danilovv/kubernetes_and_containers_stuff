@@ -14,3 +14,10 @@ kubectl get pods
 
 # PODS list for all namespaces
 kubectl get pods --all-namespaces
+
+# APPLY yaml file
+kubectl apply -f <FILE_NAME>.yaml
+
+# ADDON enable/disable
+minikube addons enable <addon_name>
+minikube addons disable <addon_name>
