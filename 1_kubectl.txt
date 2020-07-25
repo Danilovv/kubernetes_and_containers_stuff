@@ -5,8 +5,13 @@ if you dont want to store virtual drive and other vm stuff in your home director
 # Setup 8 cores, 12Gb of memory and 50Gb of storage for VM.
 # Switch name = my manual created switch, which has an access to host machine networ.
 minikube start --driver='hyperv' --cpus=8 --memory='12g' --disk-size='50g' --hyperv-virtual-switch='Net_1'
+# STOP minukube
+minikube stop
+# START minikube
+# If no minikube instance been created, then new minikube vm will start, using default parameters
+minikube start
 
-# DELETE existing VM with kubernetes (u will love it)
+# DELETE existing VM with kubernetes
 kubectl delete
 
 # PODS list for current namespace
@@ -21,3 +26,18 @@ kubectl apply -f <FILE_NAME>.yaml
 # ADDON enable/disable
 minikube addons enable <addon_name>
 minikube addons disable <addon_name>
+
+# DASHBOARD deployment.
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+# Also we should create user and role for access to UI
+# Go to this_repo/common/kubernetes_dashboard and run this commands:
+kubectl apply -f 1_dashboard-adminuser.yaml
+kubectl apply -f 2_dashboard_cluster_role_binding.yaml
+# Then we will take user access token with help of this: (copy token prpery value)
+POWERSHELL ->
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | sls admin-user | ForEach-Object { $_ -Split '\s+' } | Select -First 1)
+BASH ->
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+# PROXY your dasboard to local machine. Then you will have an access via link
+# http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+kubectl proxy

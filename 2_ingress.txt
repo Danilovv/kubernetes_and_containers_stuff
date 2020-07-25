@@ -1,0 +1,6 @@
+# MINIKUBE first step. We want to enable ingress addon (if you didnt do that on "kubectl start..." command)
+minikube addons enable ingress
+# If you want disable, then use:
+minikube addons disable ingress
+
+#
