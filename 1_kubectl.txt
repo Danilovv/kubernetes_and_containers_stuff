@@ -21,7 +21,10 @@ kubectl get pods
 kubectl get pods --all-namespaces
 
 # APPLY yaml file
-kubectl apply -f <FILE_NAME>.yaml
+kubectl apply -f <file_name>.yaml
+
+# DELETE service/deployment
+kubectl delete <service|deployment> <name>
 
 # ADDON enable/disable
 minikube addons enable <addon_name>
