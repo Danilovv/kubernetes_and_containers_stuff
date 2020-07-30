@@ -4,7 +4,7 @@ if you dont want to store virtual drive and other vm stuff in your home director
 # INSTALL minikube into hyper-v VM.
 # Setup 8 cores, 12Gb of memory and 50Gb of storage for VM.
 # Switch name = my manual created switch, which has an access to host machine networ.
-minikube start --driver='hyperv' --cpus=8 --memory='12g' --disk-size='50g' --hyperv-virtual-switch='Net_1'
+minikube start --driver='hyperv' --cpus=12 --memory='15g' --disk-size='150g' --hyperv-virtual-switch='Net_1'
 # STOP minukube
 minikube stop
 # START minikube
