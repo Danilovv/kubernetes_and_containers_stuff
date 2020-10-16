@@ -13,4 +13,4 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```
 
 # Forward port of ArgoCD to local 8888
-kubectl port-forward svc/argocd-server -n argocd 8888:443
+`kubectl port-forward svc/argocd-server -n argocd 8888:443`
