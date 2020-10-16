@@ -11,7 +11,7 @@ kubectl apply -f <file_name>.yaml
 kubectl delete <service|deployment|pod> <name>
 
 # DASHBOARD deployment.
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.4/aio/deploy/recommended.yaml
 # Also we should create user and role for access to UI
 # Go to this_repo/common/kubernetes_dashboard and run this commands:
 kubectl apply -f 1_dashboard-adminuser.yaml
