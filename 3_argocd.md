@@ -1,9 +1,26 @@
-# 1. Argo "Getting started page"
+### Argo "Getting started page"
 `https://argoproj.github.io/argo-cd/getting_started/`
-# 1.1
+## To install ArgoCD 
 ```
+cd common\argo_cd
 kubectl create namespace argocd
+kubectl -n argocd apply -f .\install.yaml
+```
+## To Access argo CD api (web ui)
+##### This is the most secure way to access to argo cd web ui. For other options go by a link on the top of the page
+To take initial password
+```
+kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+```
+Port forwarding
+```
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+Open ``localhost:8080`` and use `admin` login
 
+# Example application
+```
+kubectl apply -n argocd -f .\common\argo_cd\example\app.yaml
 ```
 
 
