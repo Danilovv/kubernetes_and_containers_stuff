@@ -1,3 +1,12 @@
+# 1. Argo "Getting started page"
+`https://argoproj.github.io/argo-cd/getting_started/`
+# 1.1
+```
+kubectl create namespace argocd
+
+```
+
+
 # ** IN PROGRESS **
 
 `https://argoproj.github.io/argo-cd/`
